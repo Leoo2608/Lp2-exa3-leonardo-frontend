@@ -1,0 +1,42 @@
+<section class="container">
+    <div class="row">
+        <div class="col-lg-6">
+          <div class="input-group">
+            <select (change)="listar($event.target.value)" id="inputState" class="form-control">
+                <option >Elegir Cliente...</option>
+                <option *ngFor="let cli of clientes" [value]="cli.IDPERSONA">{{cli.NOMBRES}}</option>
+              </select>
+            <span class="input-group-btn">
+              <button class="btn" type="button" (click)="activarTabla()">Go!</button>
+            </span>
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+      </div><!-- /.row -->
+    <div *ngIf="tabla=='Si'" class="row tab">
+        <div class="col-lg-6">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">ITEM</th>
+                    <th scope="col">Cant.</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Importe</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let x of ventas; let i = index" >
+                    <td> {{i+1}} </td>
+                    <td>
+                        <input disabled style="width: 2em;" type="number" placeholder="{{x.CANTIDAD}}">
+                    </td>
+                    <td> {{x.NOMBRE}} </td>
+                    <td> {{x.PRECIO}} </td>
+                    <td> {{x.PRECIO}} </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</section>
+

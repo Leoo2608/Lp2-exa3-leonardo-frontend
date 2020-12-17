@@ -1,0 +1,67 @@
+<section class="container" style="display: flex;">
+    <section>
+        <div class="row">
+            <div class="col-lg-6">
+              <div class="input-group">
+                <select (change)="listar($event.target.value)" id="inputState" class="form-control">
+                    <option >Elegir Productos .....</option>
+                    <option *ngFor="let cli of clientes" [value]="cli.IDPERSONA">{{cli.NOMBRES}}</option>
+                  </select>
+                
+              </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+          </div><!-- /.row -->
+        <div  class="row tab">
+            <div class="col-lg-6">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">ITEM</th>
+                        <th scope="col">Cant.</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Importe</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let x of ventas; let i = index" >
+                        <td> {{i+1}} </td>
+                        <td>
+                            <input disabled style="width: 2em;" type="number" placeholder="{{x.CANTIDAD}}">
+                        </td>
+                        <td> {{x.NOMBRE}} </td>
+                        <td> {{x.PRECIO}} </td>
+                        <td> {{x.PRECIO}} </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+            
+        </div>
+        <div class="row  mt-3" style="display: flex;">
+            <div class="ml-2">
+                <button class="btn btn-primary mr-5" > Registrar Venta</button>
+            </div>
+            <div>
+                <button class="btn btn-danger ml-5"> Cancelar Venta</button>
+            </div>
+        </div>
+    </section>
+    <section class="ml-5">
+        <section style="display: flex;">
+            <select class="form-control">
+                <option>Large select</option>
+            </select>
+            <select class="form-control">
+                <option>Default select</option>
+            </select>
+        </section>
+        <input type="text" placeholder="17/12/2020">
+          <section>
+           
+            <input type="text" placeholder="Daniel Rojas">
+          </section>
+        
+    </section>
+</section>
+
